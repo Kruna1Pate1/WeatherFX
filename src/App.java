@@ -3,7 +3,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class App extends Application{
@@ -23,8 +22,6 @@ public class App extends Application{
             primaryStage.getIcons().add(icon);
 
             primaryStage.setTitle("Weather Application");
-            
-            // primaryStage.setFullScreen(true);
             
             primaryStage.setScene(scene);
             primaryStage.show();
