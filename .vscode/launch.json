@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Test",
+            "request": "launch",
+            "mainClass": "controller.Test",
+            "projectName": "Weather-App-Test_cc3e871"
+        },
+        {
+            "type": "java",
+            "name": "Launch WeatherData",
+            "request": "launch",
+            "mainClass": "controller.WeatherData",
+            "projectName": "Weather-App-Test_cc3e871"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

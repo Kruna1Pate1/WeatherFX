@@ -8,6 +8,7 @@
         "d:\\JavaFXlib\\lib\\javafx.media.jar",
         "d:\\JavaFXlib\\lib\\javafx.swing.jar",
         "d:\\JavaFXlib\\lib\\javafx.web.jar",
-        "d:\\JavaFXlib\\lib\\javafx-swt.jar"
+        "d:\\JavaFXlib\\lib\\javafx-swt.jar",
+        "d:\\JavaFXlib\\json-simple-1.1.jar"
     ]
 }
