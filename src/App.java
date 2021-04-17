@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class App extends Application{
@@ -15,7 +16,7 @@ public class App extends Application{
     public void start(Stage primaryStage) throws Exception {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("layouts/home.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("layouts/main.fxml"));
             Scene scene = new Scene(root);
             
             Image icon = new Image("assets/icon.png");
