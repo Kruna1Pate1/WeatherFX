@@ -1,14 +1,40 @@
-## Getting Started
+# WeatherFX
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## About WeatherFX
 
-## Folder Structure
+WeatherFx is written in Java and fxml. It gives current weather of given city.
 
-The workspace contains two folders by default, where:
+---
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Installation from source
 
-## Dependency Management
+For installing from source with **vscode** follow below steps :
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+In cmd type 
+```
+git clone https://github.com/Kruna1Pate1/WeatherFX.git
+code WeatherFx
+```
+In explorer panel at below in `Java Project` you will see `Refrenced Libraries`.
+
+Click on `+` and add javaFX refrence libraries. For downloading them [visit here](https://gluonhq.com/products/javafx "JavaFX refrence Libraries")
+
+Now you have to make some changes in `.vscode/launch.json` to able to run this.
+
+Go to line **31** 
+
+~~~
+replace
+"vmArgs": "--module-path \"D:/Program Files - D/JavaFXlib/javafx-sdk-11.0.2/lib\" --add-modules javafx.controls,javafx.fxml",
+
+with
+"vmArgs": "--module-path \"<your-refrence-lib-path>\" --add-modules javafx.controls,javafx.fxml",
+~~~
+
+---
+
+## Preview
+
+![Preview-1](https://github.com/Kruna1Pate1/WeatherFX/blob/main/src/assets/preview/WeatherFX-1.png "WeatherFX preview-1")
+
+![Preview-2](https://github.com/Kruna1Pate1/WeatherFX/blob/main/src/assets/preview/WeatherFX-2.png "WeatherFX preview-2")
