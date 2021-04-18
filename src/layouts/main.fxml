@@ -63,7 +63,7 @@
             <Image url="@../assets/windIcon.png" />
          </image>
       </ImageView>
-      <Label fx:id="windSpeedLable" layoutX="538.0" layoutY="272.0" prefHeight="25.0" prefWidth="78.0" text="8 km/h" textFill="WHITE">
+      <Label fx:id="windSpeedLable" layoutX="538.0" layoutY="272.0" prefHeight="25.0" prefWidth="78.0" text="2 m/s" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -94,7 +94,7 @@
             <Image url="@../assets/PressureIcon.png" />
          </image>
       </ImageView>
-      <Label fx:id="pressureLable" layoutX="861.0" layoutY="272.0" prefHeight="25.0" prefWidth="86.0" text="1000 h/a" textFill="WHITE">
+      <Label fx:id="pressureLable" layoutX="861.0" layoutY="272.0" prefHeight="25.0" prefWidth="86.0" text="1000 hPa" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
