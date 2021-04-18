@@ -12,6 +12,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javafx.scene.image.Image;
+
 public class WeatherData {
 
     private String mTemperature, mCity, mIcon, mWeatherType, mTemp, mDescription, mPressure, mHumidity, mFeelLike, mWeatherIcon,
@@ -151,8 +153,9 @@ public class WeatherData {
         return mWindSpeed;
     }
 
-    public String getWeatherIcon() {
-        return "D:/JavaFX-Project/WeatherAppTest/Weather-App-Test/src/assets/" + mWeatherIcon + ".png";
+    public Image getWeatherIcon() {
+        String imageUrl = getClass().getResource("../assets/" + mWeatherIcon + ".png").toString();
+        return new Image(imageUrl);
     }
     public int getCondition() {
         return mCondition;

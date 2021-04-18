@@ -1,6 +1,4 @@
 package controller;
-
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.json.simple.parser.ParseException;
@@ -34,7 +32,7 @@ public class MainController {
     @FXML
     private Label cityLable, discriptionLable, tempLable, feelLable, rainChanceLable, windSpeedLable, humidityLable, pressureLable;
 
-    private String cityL, discription, temp, feel, rainChance, windSpeed, humidity, pressure, imageUrl;
+    private String cityL, discription, temp, feel, rainChance, windSpeed, humidity, pressure;
     @FXML
     public void fetchData(ActionEvent e) throws IOException, InterruptedException, ParseException {
 
@@ -44,9 +42,7 @@ public class MainController {
 
         setData(data);
 
-        imageUrl = data.getWeatherIcon();
-        image = new Image(new FileInputStream(imageUrl));
-        conditionIcon.setImage(image);
+        conditionIcon.setImage(data.getWeatherIcon());
     }
 
     @FXML
