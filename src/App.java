@@ -22,7 +22,7 @@ public class App extends Application{
             primaryStage.getIcons().add(icon);
 
             primaryStage.setTitle("Weather Application");
-            
+
             primaryStage.setScene(scene);
             primaryStage.show();
             

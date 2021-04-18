@@ -14,7 +14,8 @@ import org.json.simple.parser.ParseException;
 
 public class WeatherData {
 
-    private String mTemperature, mCity, mIcon, mWeatherType, mTemp, mDescription, mPressure, mHumidity;
+    private String mTemperature, mCity, mIcon, mWeatherType, mTemp, mDescription, mPressure, mHumidity, mFeelLike, mWeatherIcon,
+            mRain, mWindSpeed;
     private int mCondition;
 
     public static WeatherData getData(String city) throws IOException, InterruptedException, ParseException {
@@ -22,6 +23,7 @@ public class WeatherData {
         WeatherData weatherData = new WeatherData();
         JSONObject jObject = reqData(city);
         JSONObject tempJsonObject;
+        Double tempDouble;
 
         try {
             weatherData.mCity = jObject.get("name").toString();
@@ -34,9 +36,20 @@ public class WeatherData {
             weatherData.mDescription = tempJsonObject.get("description").toString();
 
             tempJsonObject = (JSONObject) jObject.get("main");
-            weatherData.mTemp = String.valueOf(Double.parseDouble(tempJsonObject.get("temp").toString()) - 273.15);
+            tempDouble = Double.parseDouble(tempJsonObject.get("temp").toString()) - 273.15;
+            weatherData.mTemp = String.valueOf((int) Math.rint(tempDouble));
             weatherData.mPressure = tempJsonObject.get("pressure").toString();
             weatherData.mHumidity = tempJsonObject.get("humidity").toString();
+            tempDouble = Double.parseDouble(tempJsonObject.get("feels_like").toString()) - 273.15;
+            weatherData.mFeelLike = String.valueOf((int) Math.rint(tempDouble));
+
+            // tempJsonObject = (JSONObject) jObject.get("rain"); //rain data not awailable temporary
+            // weatherData.mRain = tempJsonObject.get("3h").toString();
+
+            tempJsonObject = (JSONObject) jObject.get("wind");
+            weatherData.mWindSpeed = tempJsonObject.get("speed").toString();
+
+            weatherData.mWeatherIcon = updateWeatherIcon(weatherData.mCondition);
             return weatherData;
 
         } catch (Exception e) {
@@ -63,6 +76,35 @@ public class WeatherData {
 
         System.out.println(jsonObject.get("name"));
         return jsonObject;
+    }
+
+    private static String updateWeatherIcon(int condition) {
+        if (condition >= 0 && condition <= 300) {
+            return "thunderstrom1";
+        } else if (condition >= 300 && condition <= 500) {
+            return "lightrain";
+        } else if (condition >= 500 && condition <= 600) {
+            return "shower";
+        } else if (condition >= 600 && condition <= 700) {
+            return "snow2";
+        } else if (condition >= 701 && condition <= 771) {
+            return "fog";
+        } else if (condition >= 772 && condition <= 800) {
+            return "overcast";
+        } else if (condition == 800) {
+            return "clear_sky";
+        } else if (condition >= 801 && condition <= 804) {
+            return "cloudy";
+        } else if (condition >= 900 && condition <= 902) {
+            return "thunderstrom1";
+        } else if (condition == 903) {
+            return "snow1";
+        } else if (condition == 904) {
+            return "clear_sky";
+        } else if (condition >= 905 && condition <= 1000) {
+            return "thunderstrom2";
+        }
+        return "default01";
     }
 
     public String getTemperature() {
@@ -97,6 +139,21 @@ public class WeatherData {
         return mHumidity;
     }
 
+    public String getFeelLike() {
+        return mFeelLike;
+    }
+
+    public String getRain() {
+        return "3"; //rain data unawailable temporary
+    }
+
+    public String getWindSpeed() {
+        return mWindSpeed;
+    }
+
+    public String getWeatherIcon() {
+        return "D:/JavaFX-Project/WeatherAppTest/Weather-App-Test/src/assets/" + mWeatherIcon + ".png";
+    }
     public int getCondition() {
         return mCondition;
     }
