@@ -1,0 +1,7 @@
+#anchorPane {
+    -fx-background-image: url("../assets/background.jpg");
+    -fx-background-size:  100% 100%;
+    -fx-font-family: 'Courier', sans-serif;
+}
+
+/* style="-fx-background-image: url('file:D:/JavaFX-Project/WeatherAppTest/Weather-App-Test/src/assets/background.jpg'); -fx-background-size: 100% 100%;" */
