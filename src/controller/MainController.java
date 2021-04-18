@@ -1,8 +1,13 @@
 package controller;
+
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import org.json.simple.parser.ParseException;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,7 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * Controller of Main.xml 
+ * Controller of Main.xml
  */
 
 public class MainController {
@@ -30,9 +35,17 @@ public class MainController {
     private ImageView conditionIcon;
 
     @FXML
-    private Label cityLable, discriptionLable, tempLable, feelLable, rainChanceLable, windSpeedLable, humidityLable, pressureLable;
+    private Label cityLable, discriptionLable, tempLable, feelLable, rainChanceLable, windSpeedLable, humidityLable,
+            pressureLable, timeLabel;
 
     private String cityL, discription, temp, feel, rainChance, windSpeed, humidity, pressure;
+
+
+    @FXML
+    public void initialize() {
+        updateTime();
+    }
+
     @FXML
     public void fetchData(ActionEvent e) throws IOException, InterruptedException, ParseException {
 
@@ -66,4 +79,39 @@ public class MainController {
         humidityLable.setText(humidity);
         pressureLable.setText(pressure);
     }
+
+    SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss a");
+    Calendar calendar;
+    String time;
+
+    @FXML
+    public void updateTime() {
+        boolean f = true;
+
+        Task<Void> task = new Task<Void>() {
+            @Override
+            public Void call() throws Exception {
+                while (f) {
+                    
+                time = timeFormat.format(Calendar.getInstance().getTime());
+                Platform.runLater( new Runnable(){
+                    @Override
+                    public void run() {
+                        timeLabel.setText(time);
+                    }
+                });
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+                return null;
+            }
+        };
+        Thread t = new Thread(task);
+        t.setDaemon(true);
+        t.start();
+    }
+
 }
