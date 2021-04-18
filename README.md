@@ -1,4 +1,4 @@
-# WeatherFX
+# ⛈ WeatherFX ⛈
 
 ## About WeatherFX
 
