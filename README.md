@@ -2,7 +2,7 @@
 
 ## About WeatherFX
 
-WeatherFx is written in Java and fxml. It gives current weather of given city.
+WeatherFx is created in JavaFX whcih peovide current weather for any city. It uses [openweathermap](http://openweathermap.org/ "OpenWeatherMap") api for fetching data.
 
 ---
 
